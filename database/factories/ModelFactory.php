@@ -30,3 +30,12 @@ $factory->define(App\Post::class, function (Faker\Generator $faker) {
         'content' => $faker->sentences(5, true),
     ];
 });
+
+$factory->define(App\Comment::class, function (Faker\Generator $faker) {
+
+    return [
+        'name' =>$faker->name,
+        'comment' =>$faker->sentences(3,true),
+        'post_id' => \App\Post::all()->random()->id,
+    ];
+});
